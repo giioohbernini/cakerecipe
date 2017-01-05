@@ -1,3 +1,7 @@
-<img src="http://i.imgur.com/QlCiAMW.png" style="margin: 0 auto;" />
-# cakerecipe
-Cake Recipe - Gulp boilerplate  
+![CakeRecipe](http://i.imgur.com/QlCiAMW.png)
+---
+# Cake Recipe
+Gulp boilerplate  
+<p style="text-align: center;">
+  asd
+</p>
