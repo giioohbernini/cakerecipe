@@ -5,12 +5,15 @@
 ## Commands
 
 > gulp watch
+
 This command, will watch your code, refresh screen and compile sass code.
 
 > gulp deploy
+
 This command, will minify your code and images, compile sass, clean code and create the dist folder prepared to production.
 
 > gulp clean
+
 Will just remove the dist folder.
 
 ## Skeletoon
