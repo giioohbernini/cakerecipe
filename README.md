@@ -1,4 +1,4 @@
-![CakeRecipe](https://rawgit.com/giioohbernini/cakerecipe/8ea79831d569517271e9b015f6971d186875e146/src/assets/images/cakerecipe.svg)
+![CakeRecipe](https://rawgit.com/giioohbernini/cakerecipe/2a064b3e749a1ecc39dac5d38775476038a937ab/src/assets/images/cakerecipe.svg)
 
 
 ---
