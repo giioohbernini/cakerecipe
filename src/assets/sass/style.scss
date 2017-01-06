@@ -1,4 +1,21 @@
 @import "_normalize.scss";
-@import "_fonts.scss";
-@import "_mediaquerys.scss";
+// @import "_fonts.scss";
+// @import "_mediaquerys.scss";
+@import "_animations";
+
+.content {
+	background-color: #faebd7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+
+	.cake-recipe {
+		position: relative;
+		//will-change: transform;
+		animation: pulsar 1s linear infinite;
+	}
+
+}
 
