@@ -16,10 +16,13 @@ This command, will minify your code and images, compile sass, clean code and cre
 
 Will just remove the dist folder.
 
-## Skeletoon
-  
+## Skeleton
 
-## Folders
+![CR Skeleton](http://i.imgur.com/robIop7.jpg)
+
+## How to use
+
+(Is in comming)
 
 
 

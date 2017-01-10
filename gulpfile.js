@@ -1,29 +1,24 @@
-/*
-    CakeRecipe
-    Autor: Giovanni Bernini
-*/
-
-//initialize all of our variables
+// ========= Variables ========== //
 var app, base, directory, gutil, hostname, path, refresh;
 
 var autoPrefixBrowserList = ['last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'];
 
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var gulpautoprefixer = require('gulp-autoprefixer');
-var browserSync = require('browser-sync');
-var plumber = require('gulp-plumber');
-var uglify = require('gulp-uglify');
-var concat = require('gulp-concat');
-var imagemin = require('gulp-imagemin');
-var notify = require( 'gulp-notify');
-var clean = require('gulp-clean');
-var gulpSequence = require('gulp-sequence').use(gulp);
-var cssnano = require('gulp-cssnano');
-var htmlmin = require('gulp-htmlmin');
+var gulp = require('gulp'),
+    sass = require('gulp-sass'),
+    gulpautoprefixer = require('gulp-autoprefixer'),
+    browserSync = require('browser-sync'),
+    plumber = require('gulp-plumber'),
+    uglify = require('gulp-uglify'),
+    concat = require('gulp-concat'),
+    imagemin = require('gulp-imagemin'),
+    notify = require( 'gulp-notify'),
+    clean = require('gulp-clean'),
+    gulpSequence = require('gulp-sequence').use(gulp),
+    cssnano = require('gulp-cssnano'),
+    htmlmin = require('gulp-htmlmin');
+// ========= Variables ========== //
 
-
-
+// ========= Watch ======== //
 gulp.task('browserSync', function() {
     browserSync({
         server: {
@@ -37,7 +32,7 @@ gulp.task('browserSync', function() {
 
 });
 
-// Compilando SCSS para CSS
+// Compiling SCSS for CSS
 gulp.task('styles', function() {
     gulp.src('./src/assets/sass/*.scss')
 	    .pipe(plumber())
@@ -57,17 +52,15 @@ gulp.task('styles', function() {
         
 });
 
-
-
 gulp.task('html', function() {
     //watch any and all HTML files and refresh when something changes
     return gulp.src('src/*.html')
         .pipe(plumber())
         .pipe(browserSync.reload({stream: true}));
 });
+// ========= Watch ======== //
 
 // ========= Deploys ======== //
-
 gulp.task('html-deploy', function() {
     gulp.src('src/*')
         .pipe(plumber())
@@ -116,26 +109,16 @@ gulp.task('images-deploy', function() {
         .pipe(imagemin())
         .pipe(gulp.dest('dist/assets/images'));
 });
-
 // ========= Deploys ======== //
 
-
-
-
 // ======== Clean ======== //
-
-//cleans our dist directory in case things got deleted
 gulp.task('clean', function() {
      return gulp.src('dist/', {read: false})
         .pipe(clean());
 });
-
 // ======== Clean ======== //
 
-
-
 // ========== Minifiers ========== //
-
 gulp.task('minify-js', function() {
     return gulp.src('dist/**/*.js')
     .pipe(uglify())
@@ -153,33 +136,21 @@ gulp.task('minify-html', function() {
     .pipe(htmlmin({collapseWhitespace: true}))
     .pipe(gulp.dest('dist/'))
 });
-
 // ========== Minifiers ========== //
 
-
-
-
-
 // ========== Notifiers ========== //
-
-// New changes notify
 gulp.task('notifyWatch', function() {
   gulp.src(['src/*'])
     .pipe(notify('Watching your changes'));
 });
 
-// Deploy notify
 gulp.task('notifyDeploy', function() {
   gulp.src(['src/*'])
     .pipe(notify('Your deploy has been completed'));
 });
-
 // ========== Notifiers ========== //
 
-
-
 // ======= Final Tasks ======= //
-
 gulp.task('minify', ['minify-js', 'minify-css', 'minify-html']);
 
 gulp.task('watch', ['browserSync', 'styles', 'notifyWatch'], function() {
@@ -188,5 +159,4 @@ gulp.task('watch', ['browserSync', 'styles', 'notifyWatch'], function() {
 });
 
 gulp.task('deploy', gulpSequence('clean', 'html-deploy', 'styles-deploy', 'js-deploy', 'images-deploy', 'minify', 'notifyDeploy'));
-
 // ======= Final Tasks ======= //
