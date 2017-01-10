@@ -98,7 +98,7 @@ gulp.task('styles-deploy', function() {
                 }))
                 //the final filename of our combined css file
                 .pipe(concat('style.css'))
-                .pipe(cssnanokkkkkkkk())
+                .pipe(cssnano())
                 //where to save our final, compressed css file
                 .pipe(gulp.dest('dist/assets/css'));
 });
