@@ -182,12 +182,10 @@ gulp.task('notifyDeploy', function() {
 
 gulp.task('minify', ['minify-js', 'minify-css', 'minify-html']);
 
-//Watch task
 gulp.task('watch', ['browserSync', 'styles', 'notifyWatch'], function() {
     gulp.watch('src/assets/sass/*.scss',['styles']);
     gulp.watch('src/*.html',['html']);
 });
-
 
 gulp.task('deploy', gulpSequence('clean', 'html-deploy', 'styles-deploy', 'js-deploy', 'images-deploy', 'minify', 'notifyDeploy'));
 

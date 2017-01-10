@@ -406,20 +406,26 @@ template {
   display: none; }
 
 @-webkit-keyframes pulsar {
-  from {
+  0% {
     -webkit-transform: scale(0.8);
             transform: scale(0.8); }
-  to {
+  50% {
     -webkit-transform: scale(1.2);
-            transform: scale(1.2); } }
+            transform: scale(1.2); }
+  100% {
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8); } }
 
 @keyframes pulsar {
-  from {
+  0% {
     -webkit-transform: scale(0.8);
             transform: scale(0.8); }
-  to {
+  50% {
     -webkit-transform: scale(1.2);
-            transform: scale(1.2); } }
+            transform: scale(1.2); }
+  100% {
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8); } }
 
 .content {
   background-color: #faebd7;
@@ -435,5 +441,6 @@ template {
   height: 100vh; }
   .content .cake-recipe {
     position: relative;
-    -webkit-animation: pulsar 1s linear infinite;
-            animation: pulsar 1s linear infinite; }
+    will-change: transform;
+    -webkit-animation: pulsar 6s cubic-bezier(0.74, -0.01, 0.21, 1.02) infinite;
+            animation: pulsar 6s cubic-bezier(0.74, -0.01, 0.21, 1.02) infinite; }
