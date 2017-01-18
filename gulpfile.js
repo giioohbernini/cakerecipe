@@ -64,16 +64,16 @@ gulp.task('html', function() {
 gulp.task('html-deploy', function() {
     gulp.src('src/*')
         .pipe(plumber())
-        .pipe(gulp.dest('dist'));
+        .pipe(gulp.dest('app'));
 
     //grab any hidden files too
     gulp.src('src/.*')
         .pipe(plumber())
-        .pipe(gulp.dest('dist'));
+        .pipe(gulp.dest('app'));
 
     gulp.src('src/assets/fonts/*')
         .pipe(plumber())
-        .pipe(gulp.dest('dist/assets/fonts'));
+        .pipe(gulp.dest('app/assets/fonts'));
 });
 
 gulp.task('styles-deploy', function() {
@@ -93,48 +93,48 @@ gulp.task('styles-deploy', function() {
                 .pipe(concat('style.css'))
                 .pipe(cssnano())
                 //where to save our final, compressed css file
-                .pipe(gulp.dest('dist/assets/css'));
+                .pipe(gulp.dest('app/assets/css'));
 });
 
 gulp.task('js-deploy', function(){
         return gulp.src('src/assets/js/*.js')
                 .pipe(plumber())    
                 .pipe(uglify())     
-                .pipe(gulp.dest('dist/assets/js'));
+                .pipe(gulp.dest('app/assets/js'));
 });
 
 gulp.task('images-deploy', function() {
-    gulp.src(['src/assets/images/*'])
+    gulp.src(['src/assets/img/*'])
         .pipe(plumber())
         .pipe(imagemin())
-        .pipe(gulp.dest('dist/assets/images'));
+        .pipe(gulp.dest('app/assets/img'));
 });
 // ========= Deploys ======== //
 
 // ======== Clean ======== //
 gulp.task('clean', function() {
-     return gulp.src('dist/', {read: false})
+     return gulp.src('app/', {read: false})
         .pipe(clean());
 });
 // ======== Clean ======== //
 
 // ========== Minifiers ========== //
 gulp.task('minify-js', function() {
-    return gulp.src('dist/**/*.js')
+    return gulp.src('app/**/*.js')
     .pipe(uglify())
-    .pipe(gulp.dest('dist/'))
+    .pipe(gulp.dest('app/'))
 });
 
 gulp.task('minify-css', function() {
-    return gulp.src('dist/**/*.css')
+    return gulp.src('app/**/*.css')
     .pipe(cssnano({safe: true}))
-    .pipe(gulp.dest('dist/'))
+    .pipe(gulp.dest('app/'))
 });
 
 gulp.task('minify-html', function() {
-    return gulp.src('dist/**/*.html')
+    return gulp.src('app/**/*.html')
     .pipe(htmlmin({collapseWhitespace: true}))
-    .pipe(gulp.dest('dist/'))
+    .pipe(gulp.dest('app/'))
 });
 // ========== Minifiers ========== //
 
