@@ -1,3 +1,26 @@
-@media (max-width: 480px) {
-	// Media Querys Here!
+$phone: "screen and (max-width: 480px)";
+$tablet: "screen and (max-width: 481px) and (min-width: 768px)";
+$tablet-desktop: "screen and (max-width: 769px) and (min-width: 1024px)";
+$desktop: "screen and (min-width: 1025px)";
+
+@mixin media-query($response) {
+	@if $response == phone {
+
+		@media #{$phone} { @content }
+	}
+
+	@else if $response == tablet {
+
+		@media #{$tablet} { @content }
+	}		
+
+	@else if $response == tablet-desktop {
+
+		@media #{$tablet-desktop} { @content }
+	}	
+
+	@else if $response == desktop {
+
+		@media #{$desktop} { @content }
+	}	
 }

@@ -1,7 +1,8 @@
-@import "_normalize.scss";
-// @import "_fonts.scss";
-// @import "_mediaquerys.scss";
+@import "_reset";
+@import "_fonts";
+@import "_mediaquerys";
 @import "_animations";
+@import "components/_all";
 
 .content {
 	background-color: #faebd7;
@@ -9,12 +10,5 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-
-	.cake-recipe {
-		position: relative;
-		will-change: transform;
-		animation: pulsar 6s cubic-bezier(0.74, -0.01, 0.21, 1.02) infinite
-	}
-
 }
 

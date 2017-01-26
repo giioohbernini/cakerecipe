@@ -58,6 +58,13 @@ gulp.task('html', function() {
         .pipe(plumber())
         .pipe(browserSync.reload({stream: true}));
 });
+
+gulp.task('js', function() {
+    //watch any and all HTML files and refresh when something changes
+    return gulp.src('src/assets/js/*.js')
+        .pipe(plumber())
+        .pipe(browserSync.reload({stream: true}));
+});
 // ========= Watch ======== //
 
 // ========= Deploys ======== //
@@ -154,8 +161,9 @@ gulp.task('notifyDeploy', function() {
 gulp.task('minify', ['minify-js', 'minify-css', 'minify-html']);
 
 gulp.task('watch', ['browserSync', 'styles', 'notifyWatch'], function() {
-    gulp.watch('src/assets/sass/*.scss',['styles']);
+    gulp.watch('src/assets/sass/**/*.scss',['styles']);
     gulp.watch('src/*.html',['html']);
+    gulp.watch('src/assets/js/**/**/*.js',['js']);
 });
 
 gulp.task('deploy', gulpSequence('clean', 'html-deploy', 'styles-deploy', 'js-deploy', 'images-deploy', 'minify', 'notifyDeploy'));
