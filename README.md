@@ -23,7 +23,7 @@ Will just remove the dist folder.
 
 ## How to use
 
-(Is in comming)
+(In comming)
 
 
 
