@@ -9,7 +9,7 @@
     "type": "git",
     "url": "http://github.com/giioohbernini/cakerecipe.git"
   },
-   "scripts": {
+  "scripts": {
     "start": "npx gulp watch",
     "deploy": "npx gulp deploy",
     "clean": "npx gulp clean"
